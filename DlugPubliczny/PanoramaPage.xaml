@@ -1,0 +1,163 @@
+﻿<phone:PhoneApplicationPage
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
+	xmlns:ctrl="clr-namespace:NokiaFeedbackDemo.Controls"
+	xmlns:telerikChart="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Chart"
+	xmlns:telerikChartSpecialized="clr-namespace:Telerik.Windows.Controls.Chart;assembly=Telerik.Windows.Controls.Chart"
+	xmlns:Charting="clr-namespace:Telerik.Charting;assembly=Telerik.Windows.Controls.Chart" 
+	xmlns:telerikPrimitives="using:Telerik.UI.Xaml.Controls.Primitives"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+	xmlns:WindowsPhone8="clr-namespace:Microsoft.AdMediator.WindowsPhone8;assembly=Microsoft.AdMediator.WindowsPhone8"
+	x:Class="DlugPubliczny.PanoramaPage"
+	mc:Ignorable="d"
+	SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
+	shell:SystemTray.IsVisible="True" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource PhoneForegroundBrush}">
+
+
+	<!--LayoutRoot contains the root grid where all other page content is placed-->
+	<Grid x:Name="LayoutRoot">
+		<WindowsPhone8:AdMediatorControl x:Name="AdMediator_4D06E3" HorizontalAlignment="Center" Id="AdMediator-Id-27AB68D2-33A7-4A6A-9374-B3E9F6C4E48C" Margin="0" VerticalAlignment="Bottom" Width="480" Height="80" Canvas.ZIndex="10"/>
+
+
+		<phone:Panorama Title="{Binding LocalizedResources.PolishDebt, Source={StaticResource LocalizedStrings}}" Foreground="White">
+			<phone:Panorama.Background>
+				<ImageBrush Stretch="Fill" ImageSource="/Assets/panoramabg.jpg" Opacity="0.5"/>
+			</phone:Panorama.Background>
+
+			<!--Panorama item one-->
+			<phone:PanoramaItem Header="{Binding LocalizedResources.Debt, Source={StaticResource LocalizedStrings}}" HeaderTemplate="{StaticResource SmallTabTitle}">
+				<Grid>
+					<TextBlock x:Name="NationalDebt" HorizontalAlignment="Left" Margin="22,10,12,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.NationalDebt, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" FontSize="36"/>
+					<TextBlock x:Name="NationalDebtValue" HorizontalAlignment="Left" Margin="22,63,12,0" TextWrapping="Wrap" Text="947 187 516 125 PLN" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI"/>
+					<TextBlock x:Name="NationalDebtPerPerson" HorizontalAlignment="Left" Margin="22,100,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.NationalDebtPerPerson, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" FontSize="36"/>
+					<TextBlock x:Name="NationalDebtPerPersonValue" HorizontalAlignment="Left" Margin="22,153,0,0" TextWrapping="Wrap" Text="947 187 516 125 PLN" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI"/>
+					<TextBlock x:Name="NationalDebtSinceAppStart" HorizontalAlignment="Left" Margin="22,190,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.NationalDebtSinceAppStart, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" FontSize="36"/>
+					<TextBlock x:Name="NationalDebtSinceAppStartValue" HorizontalAlignment="Left" Margin="22,243,0,0" TextWrapping="Wrap" Text="947 187 516 125 PLN" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI"/>
+					<TextBlock x:Name="NationalDebtPerSecond" HorizontalAlignment="Left" Margin="22,280,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.NationalDebtPerSecond, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" FontSize="36"/>
+					<TextBlock x:Name="NationalDebtPerSecondValue" HorizontalAlignment="Left" Margin="22,333,0,0" TextWrapping="Wrap" Text="1988.40 zł" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI"/>
+				</Grid>
+			</phone:PanoramaItem>
+
+			<phone:PanoramaItem Header="{Binding LocalizedResources.InItems, Source={StaticResource LocalizedStrings}}" HeaderTemplate="{StaticResource SmallTabTitle}">
+				<Grid>
+					<TextBlock x:Name="Cars" HorizontalAlignment="Left" Margin="22,10,12,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.Cars, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" FontSize="36"/>
+					<TextBlock x:Name="CarsValue" HorizontalAlignment="Left" Margin="22,63,12,0" TextWrapping="Wrap" Text="1 Car" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI"/>
+					<TextBlock x:Name="HighEndPC" HorizontalAlignment="Left" Margin="22,100,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.HighEndPC, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" FontSize="36"/>
+					<TextBlock x:Name="HighEndPCValue" HorizontalAlignment="Left" Margin="22,153,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI"/>
+					<TextBlock x:Name="XboxOne" HorizontalAlignment="Left" Margin="22,190,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.XboxOne, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" FontSize="36"/>
+					<TextBlock x:Name="XboxOneValue" HorizontalAlignment="Left" Margin="22,243,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI"/>
+					<TextBlock x:Name="Skyscrapers" HorizontalAlignment="Left" Margin="22,280,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.Skyscrapers, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Top" FontSize="36"/>
+					<TextBlock x:Name="SkyscrapersValue" HorizontalAlignment="Left" Margin="22,333,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI"/>
+				</Grid>
+			</phone:PanoramaItem>
+			<phone:PanoramaItem Header="{Binding LocalizedResources.chartsTabTitle, Source={StaticResource LocalizedStrings}}" HeaderTemplate="{StaticResource SmallTabTitle}">
+				<Grid Margin="0,0,0,80">
+					<telerikChart:RadCartesianChart>
+
+						<telerikChart:RadCartesianChart.HorizontalAxis>
+							<telerikChart:CategoricalAxis/>
+						</telerikChart:RadCartesianChart.HorizontalAxis>
+
+						<telerikChart:RadCartesianChart.VerticalAxis>
+							<telerikChart:LinearAxis Title="BLN EURO"/>
+						</telerikChart:RadCartesianChart.VerticalAxis>
+
+						<!--<telerikChart:BarSeries HorizontalAxis="{Binding Source={StaticResource additionalHorizontalAxis}, Path=[0]}">
+								<telerikChart:BarSeries.DataPoints>
+									<Charting:CategoricalDataPoint Category="A" Value="7"/>
+									<Charting:CategoricalDataPoint Category="B" Value="12"/>
+									<Charting:CategoricalDataPoint Category="C" Value="11"/>
+									<Charting:CategoricalDataPoint Category="D" Value="34"/>
+									<Charting:CategoricalDataPoint Category="E" Value="28"/>
+									<Charting:CategoricalDataPoint Category="F" Value="54"/>
+								</telerikChart:BarSeries.DataPoints>
+							</telerikChart:BarSeries>-->
+
+						<telerikChart:AreaSeries StrokeThickness="4" Stroke="{StaticResource PhoneAccentBrush}" Background="{StaticResource PhoneAccentBrush}">
+							<Charting:CategoricalDataPoint Category="2002" Value="84.788"/>
+							<Charting:CategoricalDataPoint Category="2006" Value="103.411"/>
+							<Charting:CategoricalDataPoint Category="2008" Value="132.089"/>
+							<Charting:CategoricalDataPoint Category="2010" Value="144.659"/>
+							<Charting:CategoricalDataPoint Category="2012" Value="195.5680"/>
+							<Charting:CategoricalDataPoint Category="2014" x:Name="NowDataPoint" Value="217.691"/>
+						</telerikChart:AreaSeries>
+					</telerikChart:RadCartesianChart>
+				</Grid>
+			</phone:PanoramaItem>
+			<!--<phone:PanoramaItem Header="tiles" HeaderTemplate="{StaticResource SmallTabTitle}">
+				<Grid>
+					<Grid Grid.Row="1" x:Name="VisualElement" Width="113" Height="113">
+						<Rectangle Fill="{StaticResource PhoneAccentBrush}" Width="113" Height="113"/>
+						<TextBlock Text=""/>
+					</Grid>
+					<Button Grid.Row="2" VerticalAlignment="Top" Content="pin to start" Click="PinToStart_Click"/>
+				</Grid>
+			</phone:PanoramaItem>-->
+			<phone:PanoramaItem Header="{Binding LocalizedResources.aboutTabTitle, Source={StaticResource LocalizedStrings}}" HeaderTemplate="{StaticResource SmallTabTitle}">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+
+					<StackPanel>
+						<TextBlock 
+							Text="{Binding LocalizedResources.aboutAppTitle, Source={StaticResource LocalizedStrings}}" 
+							Margin="12,0,12,0" 
+							FontSize="{StaticResource PhoneFontSizeLarge}" 
+							FontFamily="{StaticResource PhoneFontFamilySemiBold}"/>
+						<TextBlock 
+							Text="1.0.3.0" 
+							Margin="12,0,12,0" 
+							FontSize="{StaticResource PhoneFontSizeNormal}"/>
+					</StackPanel>
+					<TextBlock 
+						Grid.Row="1" 
+						Text="{Binding LocalizedResources.aboutAppDesc, Source={StaticResource LocalizedStrings}}"
+						Margin="12,24,12,24" 
+						TextWrapping="Wrap" 
+						Foreground="{StaticResource PhoneSubtleBrush}" 
+						FontSize="{StaticResource PhoneFontSizeNormal}" >
+						<!--<i:Interaction.Triggers>
+							<i:EventTrigger EventName="MouseLeftButtonDown">
+								<ec:NavigateToPageAction TargetPage="/AboutPage.xaml"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>-->
+					</TextBlock>
+                    <HyperlinkButton 
+						Grid.Row="1"
+						Content="{Binding LocalizedResources.aboutRateThisApp, Source={StaticResource LocalizedStrings}}" 
+						Margin="0,12,0,0" 
+						HorizontalAlignment="Left" 
+						FontSize="{StaticResource PhoneFontSizeNormal}" Tap="HyperlinkButton_Tap" 
+				Foreground="#FFE51400" VerticalAlignment="Center" Height="75">
+                    </HyperlinkButton>
+					<StackPanel Grid.Row="4" Margin="12,0,12,80" VerticalAlignment="Bottom">
+						<!--<Image 
+					Source="Images/CompanyLogo.png" 
+					Stretch="None" 
+					HorizontalAlignment="Left" />-->
+						<!--<Image 
+					Source="Images/CompanyLogo.png" 
+					Stretch="None" 
+					HorizontalAlignment="Left" />-->
+						<TextBlock 
+							Text="{Binding LocalizedResources.Copyright, Source={StaticResource LocalizedStrings}}" 
+							Margin="0,12,0,0" 
+							FontSize="{StaticResource PhoneFontSizeNormal}"/>
+						<TextBlock 
+							Text="{Binding LocalizedResources.aboutCompanyName, Source={StaticResource LocalizedStrings}}"
+							FontSize="{StaticResource PhoneFontSizeNormal}"/>
+					</StackPanel>
+				</Grid>
+			</phone:PanoramaItem>
+		</phone:Panorama>
+		<ctrl:FeedbackOverlay Grid.RowSpan="2" ctrl:FeedbackOverlay.EnableAnimation="True" />
+	</Grid>
+
+</phone:PhoneApplicationPage>
